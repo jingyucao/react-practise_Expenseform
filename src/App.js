@@ -1,5 +1,6 @@
 // import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/New Expenses/NewExpense";
 
 // in ES6, we can write the function in the below syntax:
 // const App=()=>{}....
@@ -39,6 +40,7 @@ function App() {
       {/*<ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date}></ExpenseItem>*/}
       {/*<ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date}></ExpenseItem>*/}
 
+    <NewExpense/>
       <Expenses expenses={expenses}/>
 
     </div>
