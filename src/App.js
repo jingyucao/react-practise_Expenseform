@@ -1,6 +1,9 @@
 // import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses/Expenses";
 
+// in ES6, we can write the function in the below syntax:
+// const App=()=>{}....
+
 function App() {
 
   const expenses = [
