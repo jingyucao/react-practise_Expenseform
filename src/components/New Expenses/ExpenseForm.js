@@ -3,7 +3,7 @@ import './ExpenseForm.css'
 
 // we can use either multiple States or one State Object, up to ourselves
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
@@ -87,7 +87,8 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate)
     };
-    console.log(expenseData)
+
+    props.onSaveExpenseData(expenseData);
 
     setEnteredTitle ("");
     setEnteredAmount ("");

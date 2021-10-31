@@ -33,6 +33,17 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (newExpense) =>{
+
+    console.log('in App.js')
+    const inputExpenses={
+      ...newExpense
+    }
+
+    console.log(inputExpenses)
+
+  }
+
   return (
     <div className="App">
       {/*<ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date}></ExpenseItem>*/}
@@ -40,7 +51,7 @@ function App() {
       {/*<ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date}></ExpenseItem>*/}
       {/*<ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date}></ExpenseItem>*/}
 
-    <NewExpense/>
+      <NewExpense onAddExpenseHandler={addExpenseHandler}/>
       <Expenses expenses={expenses}/>
 
     </div>
