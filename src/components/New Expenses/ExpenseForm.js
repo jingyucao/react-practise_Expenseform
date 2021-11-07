@@ -43,36 +43,10 @@ const ExpenseForm = (props) => {
 
   const amountChangeHandler = (event) => {
     setEnteredAmount (event.target.value);
-
-    // setUserInput(
-    //   {
-    //     ...userInput,
-    //     enteredTitle:event.target.value
-    //   }
-    // );
-
-    // setUserInput ((prevState => {
-    //   return (
-    //     {...prevState, enteredAmount: event.target.vale}
-    //   )
-    // }))
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate (event.target.value);
-
-    // setUserInput(
-    //   {
-    //     ...userInput,
-    //     enteredTitle:event.target.value
-    //   }
-    // );
-
-    // setUserInput ((prevState => {
-    //   return (
-    //     {...prevState, enteredDate: event.target.vale}
-    //   )
-    // }))
   };
 
   // the browser itself will make sure that we will get such a event object when this change event occurs

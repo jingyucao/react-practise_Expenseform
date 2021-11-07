@@ -9,7 +9,6 @@ const NewExpense = (props) => {
         id: Math.random().toString()
         // Math.random() is not perfect but good enough for the demo
       };
-      console.log (expenseData);
       props.onAddExpenseHandler(expenseData);
     };
 
