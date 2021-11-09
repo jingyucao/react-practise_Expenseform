@@ -25,39 +25,40 @@ function App() {
       id: 'e3',
       title: 'Car Insurance',
       amount: 294.67,
-      date: new Date(2021, 2, 28),
+      date: new Date(2020, 2, 28),
     },
     {
       id: 'e4',
       title: 'New Desk (Wooden)',
       amount: 450,
-      date: new Date(2021, 5, 12),
+      date: new Date(2019, 5, 12),
     },
   ];
 
-  // const addExpenseHandler = (newExpense) => {
-  //   const inputExpenses = {
-  //     ...newExpense
-  //   }
-  //   console.log(inputExpenses)
-  // }
-
   const [expenses, setExpenses] = useState(Dummy_Expenses);
-  const addExpenseHandler = (expenses) => {
-
+  const addExpenseHandler = (newExpenses) => {
     setExpenses((prevExpenses)=>{
       return(
-        [expenses,...prevExpenses]
+        [newExpenses,...prevExpenses]
       )
       }
     )
-  }
+  };
+
+  // const getYearHandler = (inputYear) =>{
+  //
+  //   setExpenses(
+  //     expenses.filter ((v)=>v.date.getFullYear().toString() === inputYear)
+  //   )
+  // }
 
   return (
     <div className="App">
 
       <NewExpense onAddExpenseHandler={addExpenseHandler}/>
-      <Expenses expensesArray={expenses}/>
+      <Expenses expensesArray={expenses} />
+      {/*onGetYearHandler={getYearHandler}*/}
+
 
     </div>
   );
