@@ -12,11 +12,19 @@ function Expenses(props) {
 
   const choosedYearHandler = (year) => {
     setChoosedYear(year);
-    // props.onGetYearHandler(year);
   };
 
-  console.log(choosedYear);
-  const filterdYear=props.expensesArray.filter ((v)=>v.date.getFullYear().toString() === choosedYear)
+  const filterdYear = props.expensesArray.filter((v) => v.date.getFullYear().toString() === choosedYear)
+
+  let expensesContent = <p>No Expenses Found.</p>;
+  if (filterdYear.length > 0) {
+    expensesContent = filterdYear.map((expenses) =>
+      (<ExpenseItem key={expenses.id}
+                    title={expenses.title}
+                    amount={expenses.amount}
+                    date={expenses.date}/>)
+    )
+  }
 
   return (
 
@@ -25,31 +33,29 @@ function Expenses(props) {
         <ExpensesFilter selected={choosedYear} onSavedYear={choosedYearHandler}/>
       </div>
 
+      {expensesContent}
+
       {/*{props.expensesArray.map((expenses) =>*/}
       {/*  (<ExpenseItem key={expenses.id} title={expenses.title} amount={expenses.amount} date={expenses.date}/>)*/}
       {/*)*/}
       {/*}*/}
 
-      {filterdYear.map((filterdYear) =>
-        (<ExpenseItem key={filterdYear.id} title={filterdYear.title} amount={filterdYear.amount} date={filterdYear.date}/>)
-      )
-      }
+      {/*如果想直接在JSX code里写条件，可以像下面这样写*/}
 
-      {/*以下这个写法也是一样的效果, 这里的箭头函数可以省略()和return*/}
+      {/*{filterdYear.length === 0 && <p>No Expenses Found.</p>}*/}
+      {/*{filterdYear.length > 0 &&*/}
+      {/*  filterdYear.map((expenses) =>*/}
+      {/*    (<ExpenseItem key={expenses.id} title={expenses.title} amount={expenses.amount}*/}
+      {/*                  date={expenses.date}/>)*/}
+      {/*  )*/}
+      {/*}*/}
+
+      {/*箭头函数可以省略()和return*/}
       {/*{props.expensesArray.map(function(expenses){*/}
       {/*  return (*/}
       {/*    <ExpenseItem title={expenses.title} amount={expenses.amount} date={expenses.date}/>*/}
       {/*  )})*/}
       {/*}*/}
-
-      {/*<ExpenseItem title={props.expenses[0].title} amount={props.expenses[0].amount}*/}
-      {/*             date={props.expenses[0].date}></ExpenseItem>*/}
-      {/*<ExpenseItem title={props.expenses[1].title} amount={props.expenses[1].amount}*/}
-      {/*             date={props.expenses[1].date}></ExpenseItem>*/}
-      {/*<ExpenseItem title={props.expenses[2].title} amount={props.expenses[2].amount}*/}
-      {/*             date={props.expenses[2].date}></ExpenseItem>*/}
-      {/*<ExpenseItem title={props.expenses[3].title} amount={props.expenses[3].amount}*/}
-      {/*             date={props.expenses[3].date}></ExpenseItem>*/}
 
     </Card>
 
