@@ -37,17 +37,7 @@ const ExpenseForm = (props) => {
 
   }
 
-  const [showForm, setShowForm] = useState(false);
-
-  const showFormHandler = () => {
-    setShowForm(!showForm);
-    console.log(showForm);
-  }
-
   return (
-
-    <div>
-      {showForm === true &&
 
       <form onSubmit={submitHandler}>
         <div className='new-expense__controls'>
@@ -66,14 +56,11 @@ const ExpenseForm = (props) => {
           </div>
         </div>
         <div className="new-expense__actions">
-          <button type="reset" onClick={showFormHandler}>Cancel</button>
+          <button type="button" onClick={props.hideFormHandler}>Cancel</button>
           <button type="submit">Add Expense</button>
         </div>
 
-      </form>}
-
-      {showForm === false && <button onClick={showFormHandler}>Add New Expense</button>}
-    </div>
+      </form>
 
   );
 };
